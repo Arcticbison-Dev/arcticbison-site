@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rudis — Open-Source Crypto Invoice Processor · Arctic Bison</title>
+  <meta name="description" content="Accept Bitcoin, Lightning, and Monero payments without a third-party processor, a billing identity, or a subpoenable payment record." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-mark">&#x25B2;</span>
+      <span class="nav-logo-text">Arctic Bison</span>
+    </a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/altostratus.html">Altostratus</a>
+      <a href="/rudis.html" style="color: var(--text-primary);">Rudis</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <a href="https://altostratus.app/login" class="nav-cta" target="_blank">Launch Control →</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">Open Source · MIT Licensed</p>
+    <h1 class="page-hero-headline">Accept crypto payments<br>without the metadata.</h1>
+    <p class="page-hero-sub">
+      Rudis is an open-source, self-hosted invoice processor for Bitcoin,
+      Lightning Network, and Monero. No third-party processor. No billing identity.
+      No subpoenable payment records. Self-host in ten minutes.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier" class="btn-primary" target="_blank">GitHub →</a>
+      <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier/blob/main/docs/SELF_HOSTING.md" class="btn-secondary" target="_blank">Self-Hosting Guide →</a>
+    </div>
+    <div class="trust-pills">
+      <span class="trust-pill">MIT License</span>
+      <span class="trust-pill">Self-hosted</span>
+      <span class="trust-pill">No KYC</span>
+      <span class="trust-pill">No metadata</span>
+      <span class="trust-pill">Lightning · BTC · Monero</span>
+      <span class="trust-pill">Docker deploy</span>
+    </div>
+  </div>
+
+  <!-- KEY POINTS -->
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label">What it is</p>
+      <div class="points-list">
+
+        <div class="point-item">
+          <h3>Built for privacy operators.</h3>
+          <p>
+            Existing payment processors require a billing identity, generate transaction records,
+            and create exactly the kind of paper trail that privacy-conscious operators cannot afford.
+            Rudis generates none of these. No processor account. No merchant identity. No records.
+          </p>
+        </div>
+
+        <div class="point-item">
+          <h3>Three payment rails.</h3>
+          <p>
+            Lightning Network for instant settlement. Bitcoin on-chain for maximum compatibility.
+            Monero for the highest available transaction privacy. You enable the rails you need
+            and leave the rest off.
+          </p>
+        </div>
+
+        <div class="point-item">
+          <h3>We use it ourselves.</h3>
+          <p>
+            Altostratus's own subscription billing runs on Rudis. Every Altostratus subscriber
+            has paid via Rudis. We did not build a privacy tool and then use Stripe.
+            This is not a hypothetical integration — it is how our own platform works today.
+          </p>
+        </div>
+
+        <div class="point-item">
+          <h3>Open source and auditable.</h3>
+          <p>
+            Full source code is on GitHub. MIT licensed. Audit the code, run your own instance,
+            or fork it for your stack. No black boxes, no proprietary dependencies, no calling home.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label">Capabilities</p>
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <div class="feature-card-tag">Payments</div>
+          <h3>Three Payment Rails</h3>
+          <p>Lightning Network (instant), Bitcoin on-chain (maximum compatibility), Monero (maximum privacy). Enable what you need.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-tag">Webhooks</div>
+          <h3>HMAC-Signed Delivery</h3>
+          <p>Webhook delivery with HMAC signing and automatic retry. Your application gets notified the moment payment confirms.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-tag">Privacy</div>
+          <h3>No Metadata Collection</h3>
+          <p>No IP logging, no device fingerprinting, no user tracking. Rudis does not collect information it does not need.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-tag">Admin</div>
+          <h3>Dashboard &amp; Management</h3>
+          <p>Invoice management, fee policies, CSV export, and revenue metrics. Everything you need to run a payment operation.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-tag">Deploy</div>
+          <h3>Docker-Based Install</h3>
+          <p>Docker Compose quickstart. Up and running in under ten minutes. Full manual deploy instructions also documented.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-tag">API</div>
+          <h3>Clean REST API</h3>
+          <p>Full REST API with API key authentication. Complete reference documentation in the repository. Integrate with any stack.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INTEGRATION -->
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label">Integration</p>
+      <h2>Rudis + Altostratus</h2>
+      <p>
+        Rudis integrates natively with Altostratus as the subscription billing layer.
+        When an Altostratus user subscribes, the platform generates a Rudis invoice.
+        The user pays via Lightning, BTC, or Monero. Rudis confirms the payment and
+        notifies Altostratus. The subscription activates.
+      </p>
+      <p>
+        No card processor. No billing identity. No paper trail linking the payment
+        to the infrastructure account. This is exactly how Altostratus billing works today.
+      </p>
+      <p>
+        You can also deploy Rudis completely independently of Altostratus — it is a
+        standalone service with a clean REST API that works with any application.
+      </p>
+      <div style="margin-top:2rem;">
+        <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier" class="btn-primary" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO DEPLOYS -->
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label">Who deploys Rudis</p>
+      <p style="max-width:560px; color:var(--text-secondary); font-size:0.95rem; margin-bottom:2rem;">
+        Any operator who wants to accept crypto payments without routing through
+        a third-party processor.
+      </p>
+      <div class="feature-grid" style="grid-template-columns: 1fr 1fr;">
+        <div class="feature-card">
+          <div class="feature-card-tag">Use case</div>
+          <h3>Privacy-focused SaaS</h3>
+          <p>Products that cannot use Stripe without compromising their privacy posture. Rudis provides crypto payment rails with no billing identity requirement.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-tag">Use case</div>
+          <h3>OSINT &amp; Security Tools</h3>
+          <p>Operators building tools that need crypto-native billing without exposing organizational identity through a payment processor account.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-tag">Use case</div>
+          <h3>Journalists &amp; Media</h3>
+          <p>Organizations that need to accept donations or subscriptions anonymously, without a payment processor that can be compelled to produce records.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card-tag">Use case</div>
+          <h3>Arctic Bison Stack</h3>
+          <p>Developers building on top of Altostratus + Rudis. The integration is documented, tested, and already running in production.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REPO -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="data-table-label" style="margin-bottom:0.5rem;">Repository</div>
+      <h2 class="cta-heading">Everything is on GitHub.</h2>
+      <p class="cta-body">
+        Full source code, self-hosting guide, Docker Compose quickstart, API reference,
+        and contribution guidelines. MIT licensed — free to use, modify, and deploy commercially.
+      </p>
+      <div class="cta-buttons">
+        <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier" class="btn-primary" target="_blank">GitHub →</a>
+        <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier/blob/main/docs/API_REFERENCE.md" class="btn-secondary" target="_blank">API Reference →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo-mark">&#x25B2;</span>
+        <span class="footer-logo-text">Arctic Bison</span>
+        <p class="footer-tagline">Privacy. Anonymity. Freedom of movement.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <p class="footer-col-heading">Products</p>
+          <a href="/altostratus.html">Altostratus</a>
+          <a href="/rudis.html">Rudis</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Company</p>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Resources</p>
+          <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier" target="_blank">GitHub</a>
+          <a href="https://altostratus.app/login" target="_blank">Launch Control</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Arctic Bison, LLC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
