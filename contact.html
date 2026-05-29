@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Arctic Bison</title>
+  <meta name="description" content="Get in touch with Arctic Bison. We work with organizations that have requirements the mainstream cloud market doesn't address." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-mark">&#x25B2;</span>
+      <span class="nav-logo-text">Arctic Bison</span>
+    </a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/altostratus.html">Altostratus</a>
+      <a href="/rudis.html">Rudis</a>
+      <a href="/contact.html" style="color: var(--text-primary);">Contact</a>
+    </div>
+    <a href="https://altostratus.app/login" class="nav-cta" target="_blank">Launch Control →</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">Contact</p>
+    <h1 class="page-hero-headline">Tell us what you're<br>trying to solve.</h1>
+    <p class="page-hero-sub">
+      We work with organizations that have requirements the mainstream cloud market
+      doesn't address. If your operational constraints make traditional platforms
+      inadequate or unsafe, we should talk.
+    </p>
+  </div>
+
+  <!-- FORM -->
+  <section class="content-section">
+    <div class="container">
+      <p class="section-label">Get in touch</p>
+      <p style="max-width:560px; color:var(--text-secondary); font-size:0.9rem; margin-bottom:0.5rem;">
+        To help us respond usefully, consider sharing: a brief description of your organization
+        and operational context, the infrastructure challenges you're trying to solve,
+        your current cloud footprint, and any non-negotiable jurisdictional, security,
+        or privacy requirements.
+      </p>
+      <p style="max-width:560px; color:var(--text-muted); font-size:0.82rem; font-family:var(--font-mono); margin-bottom:2.5rem;">
+        We understand that many of our customers operate in sensitive environments.
+        Don't worry if you can't share all of this upfront.
+      </p>
+
+      <form class="contact-form" action="https://formspree.io/f/placeholder" method="POST">
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem;">
+          <div class="form-group">
+            <label class="form-label" for="name">Full name</label>
+            <input class="form-input" type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="org">Organization</label>
+            <input class="form-input" type="text" id="org" name="organization" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email address</label>
+          <input class="form-input" type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="role">Your role</label>
+          <select class="form-select" id="role" name="role">
+            <option value="">Select one...</option>
+            <option value="owner">Owner / Director / C-Level — decision maker</option>
+            <option value="technical-lead">Technical / IT Lead with purchase authority</option>
+            <option value="operator">Technical operator building a solution</option>
+            <option value="evaluating">Evaluating — no specific role yet</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="product">Product interest</label>
+          <select class="form-select" id="product" name="product">
+            <option value="">Select one...</option>
+            <option value="operator">Altostratus — Operator ($49/mo)</option>
+            <option value="team">Altostratus — Team ($149/mo)</option>
+            <option value="infrastructure">Altostratus — Infrastructure ($399/mo)</option>
+            <option value="enterprise-si">Altostratus — Enterprise / SI (custom)</option>
+            <option value="rudis">Rudis (open source)</option>
+            <option value="both">Both products</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Tell us about your needs</label>
+          <textarea class="form-textarea" id="message" name="message" rows="6"></textarea>
+        </div>
+
+        <button class="form-submit" type="submit">Send message →</button>
+
+      </form>
+
+      <p style="margin-top:2rem; font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">
+        Or email directly: <a href="mailto:sales@altostratus.com" style="color:var(--accent);">sales@altostratus.com</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo-mark">&#x25B2;</span>
+        <span class="footer-logo-text">Arctic Bison</span>
+        <p class="footer-tagline">Privacy. Anonymity. Freedom of movement.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <p class="footer-col-heading">Products</p>
+          <a href="/altostratus.html">Altostratus</a>
+          <a href="/rudis.html">Rudis</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Company</p>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Resources</p>
+          <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier" target="_blank">GitHub</a>
+          <a href="https://altostratus.app/login" target="_blank">Launch Control</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Arctic Bison, LLC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
