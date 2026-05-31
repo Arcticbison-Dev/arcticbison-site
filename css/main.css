@@ -652,19 +652,19 @@ img { max-width: 100%; display: block; }
 
 .pricing-card.featured::before {
   content: 'Most popular';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  text-align: center;
   font-size: 0.65rem;
   font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   background: var(--accent);
   color: #000;
-  padding: 0.2rem 0.6rem;
+  padding: 0.25rem 0.6rem;
   border-radius: 100px;
   white-space: nowrap;
+  width: fit-content;
+  margin: -2rem auto 1rem;
 }
 
 .pricing-tier {
