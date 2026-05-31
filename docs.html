@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation — Arctic Bison</title>
+  <meta name="description" content="Quick-start guides for Altostratus and Rudis. Get up and running fast." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <style>
+    .docs-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 2rem;
+      min-height: 80vh;
+    }
+
+    .docs-sidebar {
+      padding: 3rem 2rem 3rem 0;
+      border-right: 1px solid var(--border);
+      position: sticky;
+      top: 64px;
+      height: fit-content;
+    }
+
+    .docs-sidebar-section {
+      margin-bottom: 2rem;
+    }
+
+    .docs-sidebar-heading {
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .docs-sidebar a {
+      display: block;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      padding: 0.25rem 0;
+      transition: color 0.15s;
+    }
+
+    .docs-sidebar a:hover,
+    .docs-sidebar a.active { color: var(--accent); }
+
+    .docs-content {
+      padding: 3rem 0 3rem 3rem;
+    }
+
+    .docs-section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .docs-section:last-child { border-bottom: none; }
+
+    .docs-section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .docs-section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 2rem 0 0.5rem;
+    }
+
+    .docs-section p {
+      font-size: 0.925rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+      max-width: 640px;
+    }
+
+    .docs-eyebrow {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .docs-step-list {
+      list-style: none;
+      counter-reset: steps;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .docs-step-list li {
+      counter-increment: steps;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .docs-step-list li::before {
+      content: counter(steps);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      border-radius: 50%;
+      border: 1px solid var(--border-light);
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      margin-top: 0.1rem;
+    }
+
+    .docs-step-list li > div {
+      flex: 1;
+    }
+
+    .docs-step-list li strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .docs-step-list li span {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .code-block {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin: 1rem 0;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .code-block .comment { color: var(--text-muted); }
+    .code-block .key { color: var(--accent); }
+    .code-block .value { color: var(--accent-green); }
+
+    .data-privacy-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.825rem;
+      margin: 1.5rem 0;
+    }
+
+    .data-privacy-table th {
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-privacy-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .data-privacy-table td:first-child { color: var(--text-primary); font-weight: 500; }
+    .data-privacy-table td.good { color: var(--accent-green); font-family: var(--font-mono); font-size: 0.78rem; }
+    .data-privacy-table td.bad { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.78rem; }
+
+    .docs-callout {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin: 1.5rem 0;
+      max-width: 640px;
+    }
+
+    .docs-link-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .docs-layout { grid-template-columns: 1fr; }
+      .docs-sidebar { display: none; }
+      .docs-content { padding: 2rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-mark">&#x25B2;</span>
+      <span class="nav-logo-text">Arctic Bison</span>
+    </a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/altostratus.html">Altostratus</a>
+      <a href="/rudis.html">Rudis</a>
+      <a href="/docs.html" style="color: var(--text-primary);">Docs</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <a href="https://altostratus.app/login" class="nav-cta" target="_blank">Launch Control →</a>
+  </nav>
+
+  <!-- DOCS LAYOUT -->
+  <div class="docs-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="docs-sidebar">
+      <div class="docs-sidebar-section">
+        <p class="docs-sidebar-heading">Altostratus</p>
+        <a href="#alto-quickstart">Quick start</a>
+        <a href="#alto-account">Account &amp; identity</a>
+        <a href="#alto-platforms">Connecting platforms</a>
+        <a href="#alto-instances">Managing instances</a>
+        <a href="#alto-billing">Billing via Rudis</a>
+        <a href="#alto-privacy">Privacy architecture</a>
+      </div>
+      <div class="docs-sidebar-section">
+        <p class="docs-sidebar-heading">Rudis</p>
+        <a href="#rudis-overview">Overview</a>
+        <a href="#rudis-quickstart">Quick start</a>
+        <a href="#rudis-api">API reference</a>
+      </div>
+      <div class="docs-sidebar-section">
+        <p class="docs-sidebar-heading">Data Architecture</p>
+        <a href="#data-spec">What we collect</a>
+        <a href="#data-comparison">Platform comparison</a>
+      </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="docs-content">
+
+      <!-- ALTOSTRATUS QUICKSTART -->
+      <div class="docs-section" id="alto-quickstart">
+        <p class="docs-eyebrow">Altostratus</p>
+        <h2>Quick start</h2>
+        <p>Get from account creation to your first deployed instance in under fifteen minutes.</p>
+
+        <ol class="docs-step-list">
+          <li>
+            <div>
+              <strong>Create an account</strong>
+              <span>Go to <a href="https://altostratus.app/login" target="_blank" style="color:var(--accent);">altostratus.app</a> and sign up with a handle and recovery key. No email required. Store your recovery key somewhere secure — it is the only way to recover account access.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Activate your subscription</strong>
+              <span>Choose a plan and pay via Rudis. You'll receive a Lightning, BTC, or Monero invoice. Payment confirms instantly on Lightning; on-chain BTC and Monero confirm within one block. No card, no billing identity.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Connect a cloud platform</strong>
+              <span>Navigate to Platforms → Add Platform. Select your provider (FlokiNET, Hetzner, Exoscale, etc.) and enter your API credentials. Credentials are stored AES-256-GCM encrypted and never transmitted in plaintext.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Provision your first instance</strong>
+              <span>Go to Instances → New Instance. Select your connected platform, choose a region, configure your instance type, and deploy. Multi-region deployments follow the same flow across multiple platforms simultaneously.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Monitor and manage</strong>
+              <span>The dashboard shows real-time status across all connected platforms. Start, stop, and destroy instances from one interface. Metrics and scan data are retained per your plan tier (30, 90, or 365 days).</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- ACCOUNT & IDENTITY -->
+      <div class="docs-section" id="alto-account">
+        <p class="docs-eyebrow">Altostratus</p>
+        <h2>Account &amp; identity</h2>
+        <p>Altostratus accounts are pseudonymous by design. There is no email address, no phone number, and no government identity linked to your account at any point.</p>
+
+        <h3>Handle</h3>
+        <p>Your handle is your account identifier. It is not publicly visible and is used only for login. Choose anything — it does not need to correspond to a real identity.</p>
+
+        <h3>Recovery key</h3>
+        <p>Your recovery key is generated at signup. It is the only credential that can restore account access if you lose your handle or password. Store it offline. We cannot recover it for you — it is never transmitted to or stored on our servers.</p>
+
+        <div class="docs-callout">
+          There is no account recovery process that involves contacting Arctic Bison. If you lose both your credentials and your recovery key, the account cannot be recovered. This is a deliberate architectural decision.
+        </div>
+      </div>
+
+      <!-- CONNECTING PLATFORMS -->
+      <div class="docs-section" id="alto-platforms">
+        <p class="docs-eyebrow">Altostratus</p>
+        <h2>Connecting platforms</h2>
+        <p>Altostratus connects to cloud providers via their native APIs. You supply API credentials; Altostratus manages the control plane.</p>
+
+        <h3>Supported providers</h3>
+        <p>FlokiNET, Hetzner Cloud, Exoscale, Njalla, coin.host, Hivenet, Scaleway, Azure, GCP, and Fly.io. Privacy-first providers (FlokiNET, Hetzner, Exoscale, Njalla, coin.host) are recommended as the primary deployment targets for operators with sovereignty requirements.</p>
+
+        <h3>Credential storage</h3>
+        <p>All API credentials are encrypted with AES-256-GCM before being stored. The encryption key is derived from your account credentials and never leaves your deployment. Altostratus cannot read your provider credentials.</p>
+
+        <h3>Platform limits by tier</h3>
+        <p>Operator: 3 platforms. Team: 10 platforms. Infrastructure: unlimited. You can connect any combination of supported providers up to your tier limit.</p>
+      </div>
+
+      <!-- MANAGING INSTANCES -->
+      <div class="docs-section" id="alto-instances">
+        <p class="docs-eyebrow">Altostratus</p>
+        <h2>Managing instances</h2>
+        <p>Instances are the compute resources provisioned through Altostratus across your connected platforms.</p>
+
+        <h3>Provisioning</h3>
+        <p>New Instance → select platform → select region → configure type and size → deploy. For multi-region deployments, repeat the region selection across multiple platforms in a single workflow.</p>
+
+        <h3>Infrastructure Builder</h3>
+        <p>The visual canvas lets you map your full topology — providers, instances, connections, and regions. Use it to document architecture decisions and visualize cross-provider deployments.</p>
+
+        <h3>AI Assist</h3>
+        <p>AI Assist is powered by your own Anthropic API key (BYOK). Your key is stored encrypted alongside your platform credentials and never transmitted to Arctic Bison. Operator tier has chat and Q&amp;A. Team and above adds plan generation and automated execution.</p>
+
+        <h3>Instance limits by tier</h3>
+        <p>Operator: 10 instances. Team: 50 instances. Infrastructure: unlimited.</p>
+      </div>
+
+      <!-- BILLING -->
+      <div class="docs-section" id="alto-billing">
+        <p class="docs-eyebrow">Altostratus</p>
+        <h2>Billing via Rudis</h2>
+        <p>All Altostratus subscriptions are processed through Rudis, our open-source crypto invoice processor. There is no card processor, no billing identity, and no payment record linking your subscription to your infrastructure account.</p>
+
+        <h3>Payment rails</h3>
+        <p>Lightning Network (instant confirmation), Bitcoin on-chain (one block confirmation), and Monero (two block confirmation). Choose the rail that fits your operational requirements.</p>
+
+        <h3>Renewal</h3>
+        <p>Subscriptions are monthly or annual. You will receive a Rudis invoice before your renewal date. Pay the invoice to continue service. There is no automatic charge — payment is always explicit and operator-initiated.</p>
+      </div>
+
+      <!-- PRIVACY ARCHITECTURE -->
+      <div class="docs-section" id="alto-privacy">
+        <p class="docs-eyebrow">Altostratus</p>
+        <h2>Privacy architecture</h2>
+        <p>The following is an architectural statement, not a privacy policy. These properties are enforced by design, not by promise.</p>
+
+        <table class="data-privacy-table">
+          <thead>
+            <tr>
+              <th>Data point</th>
+              <th>Tailscale</th>
+              <th>AWS / GCP</th>
+              <th>Altostratus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>IP address</td><td class="bad">Collected</td><td class="bad">Collected</td><td class="good">Not stored</td></tr>
+            <tr><td>Device / hostname</td><td class="bad">Collected</td><td class="bad">Collected</td><td class="good">Not collected</td></tr>
+            <tr><td>Connection timestamps</td><td class="bad">Collected</td><td class="bad">Collected</td><td class="good">Not stored</td></tr>
+            <tr><td>Email address</td><td class="bad">Required</td><td class="bad">Required</td><td class="good">Not required</td></tr>
+            <tr><td>Billing identity</td><td class="bad">Yes</td><td class="bad">Yes</td><td class="good">No</td></tr>
+            <tr><td>Legally compellable</td><td class="bad">Yes</td><td class="bad">Yes</td><td class="good">Nothing to compel</td></tr>
+          </tbody>
+        </table>
+
+        <div class="docs-callout">
+          The compellability guarantee is architectural: Altostratus does not store the records most commonly sought in legal compulsion processes. You cannot subpoena what does not exist.
+        </div>
+      </div>
+
+      <!-- RUDIS OVERVIEW -->
+      <div class="docs-section" id="rudis-overview">
+        <p class="docs-eyebrow">Rudis</p>
+        <h2>Overview</h2>
+        <p>Rudis is an open-source, self-hosted crypto invoice processor. It generates payment invoices for Bitcoin (Lightning and on-chain) and Monero, tracks payment status in real time, and delivers webhook notifications when payments confirm.</p>
+        <p>Rudis is the payment infrastructure that Altostratus itself runs on. If you have paid for an Altostratus subscription, you have already used Rudis.</p>
+        <p>Rudis is MIT licensed. The full source is on GitHub. You can deploy it independently of Altostratus for any application that needs crypto payment rails.</p>
+
+        <div class="docs-link-row">
+          <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier" class="btn-primary" target="_blank">GitHub →</a>
+          <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier/blob/main/docs/API_REFERENCE.md" class="btn-secondary" target="_blank">API Reference →</a>
+        </div>
+      </div>
+
+      <!-- RUDIS QUICKSTART -->
+      <div class="docs-section" id="rudis-quickstart">
+        <p class="docs-eyebrow">Rudis</p>
+        <h2>Quick start</h2>
+        <p>Docker Compose deploy from zero to running in under ten minutes.</p>
+
+        <ol class="docs-step-list">
+          <li>
+            <div>
+              <strong>Clone the repository</strong>
+              <span>Full instructions and the self-hosting guide are in the repository README.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Configure environment variables</strong>
+              <span>Copy <code style="font-family:var(--font-mono); font-size:0.85em; color:var(--accent);">.env.example</code> to <code style="font-family:var(--font-mono); font-size:0.85em; color:var(--accent);">.env</code> and set your node credentials (phoenixd for Lightning, Bitcoin node, Monero daemon), webhook secret, and API key.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Start with Docker Compose</strong>
+              <div class="code-block"><span class="key">docker compose up -d</span></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Create your first invoice via API</strong>
+              <div class="code-block"><span class="comment"># POST /api/invoices</span>
+<span class="key">curl</span> -X POST https://your-rudis-instance/api/invoices \
+  -H <span class="value">"X-API-Key: your-api-key"</span> \
+  -H <span class="value">"Content-Type: application/json"</span> \
+  -d <span class="value">'{"amount_usd": 49, "currency": "lightning", "description": "Operator plan"}'</span></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Handle the webhook</strong>
+              <span>Rudis sends an HMAC-signed POST to your webhook URL when payment confirms. Verify the signature, activate the subscription, done.</span>
+            </div>
+          </li>
+        </ol>
+
+        <p>Full self-hosting guide, manual deploy instructions, and troubleshooting are in the <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier/blob/main/docs/SELF_HOSTING.md" target="_blank" style="color:var(--accent);">repository</a>.</p>
+      </div>
+
+      <!-- RUDIS API -->
+      <div class="docs-section" id="rudis-api">
+        <p class="docs-eyebrow">Rudis</p>
+        <h2>API reference</h2>
+        <p>Rudis exposes a REST API authenticated with an API key. The full reference is in the repository.</p>
+
+        <h3>Key endpoints</h3>
+        <div class="code-block"><span class="comment"># Create invoice</span>
+<span class="key">POST</span>   /api/invoices
+
+<span class="comment"># Get invoice status</span>
+<span class="key">GET</span>    /api/invoices/:id
+
+<span class="comment"># List invoices</span>
+<span class="key">GET</span>    /api/invoices
+
+<span class="comment"># Webhook test</span>
+<span class="key">POST</span>   /api/webhooks/test</div>
+
+        <div class="docs-link-row">
+          <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier/blob/main/docs/API_REFERENCE.md" class="btn-secondary" target="_blank">Full API Reference →</a>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo-mark">&#x25B2;</span>
+        <span class="footer-logo-text">Arctic Bison</span>
+        <p class="footer-tagline">Privacy. Anonymity. Freedom of movement.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <p class="footer-col-heading">Products</p>
+          <a href="/altostratus.html">Altostratus</a>
+          <a href="/rudis.html">Rudis</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Company</p>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Resources</p>
+          <a href="/docs.html">Documentation</a>
+          <a href="https://github.com/Arcticbison-Dev/CryptoInvoiceNotifier" target="_blank">GitHub</a>
+          <a href="https://altostratus.app/login" target="_blank">Launch Control</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Arctic Bison, LLC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
