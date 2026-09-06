@@ -228,9 +228,10 @@
       <a href="/altostratus.html">Altostratus</a>
       <a href="/rudis.html">Rudis</a>
       <a href="/docs.html" style="color: var(--text-primary);">Docs</a>
+      <a href="/architecture.html">Architecture</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="https://altostratus.replit.app" class="nav-cta" target="_blank">Launch Control →</a>
+    <a href="/contact.html" class="nav-cta">Request Access →</a>
   </nav>
 
   <!-- DOCS LAYOUT -->
@@ -273,19 +274,19 @@
           <li>
             <div>
               <strong>Create an account</strong>
-              <span>Go to <a href="https://altostratus.replit.app" target="_blank" style="color:var(--accent);">altostratus.replit.app</a> and sign up with a handle and recovery key. No email required. Store your recovery key somewhere secure — it is the only way to recover account access.</span>
+              <span>Sign up at the Altostratus control panel with a handle and recovery key. No email required. Store your recovery key somewhere secure — it is the only way to recover account access.</span>
             </div>
           </li>
           <li>
             <div>
               <strong>Activate your subscription</strong>
-              <span>Choose a plan and pay via Rudis. You'll receive a Lightning, BTC, or Monero invoice. Payment confirms instantly on Lightning; on-chain BTC and Monero confirm within one block. No card, no billing identity.</span>
+              <span>Choose a plan and pay via Rudis. You'll receive a Lightning, BTC, or Monero invoice. Payment confirms instantly on Lightning; BTC confirms within one block; Monero confirms within two blocks. No card, no billing identity.</span>
             </div>
           </li>
           <li>
             <div>
               <strong>Connect a cloud platform</strong>
-              <span>Navigate to Platforms → Add Platform. Select your provider (FlokiNET, Hetzner, Exoscale, etc.) and enter your API credentials. Credentials are stored AES-256-GCM encrypted and never transmitted in plaintext.</span>
+              <span>Navigate to Platforms → Add Platform. Select your provider and enter your API credentials. Credentials are stored AES-256-GCM encrypted and never transmitted in plaintext.</span>
             </div>
           </li>
           <li>
@@ -327,10 +328,10 @@
         <p>Altostratus connects to cloud providers via their native APIs. You supply API credentials; Altostratus manages the control plane.</p>
 
         <h3>Supported providers</h3>
-        <p>FlokiNET, Hetzner Cloud, Exoscale, Njalla, coin.host, Hivenet, Scaleway, Azure, GCP, and Fly.io. Privacy-first providers (FlokiNET, Hetzner, Exoscale, Njalla, coin.host) are recommended as the primary deployment targets for operators with sovereignty requirements.</p>
+        <p>Altostratus connects to sovereignty-first hosting providers, European infrastructure, distributed compute networks, and major commercial clouds. Provider details are available after access is granted. We don't publish our full integration list publicly.</p>
 
         <h3>Credential storage</h3>
-        <p>All API credentials are encrypted with AES-256-GCM before being stored. The encryption key is derived from your account credentials and never leaves your deployment. Altostratus cannot read your provider credentials.</p>
+        <p>All API credentials are encrypted with AES-256-GCM before being stored. Credentials are decrypted server-side only when you initiate infrastructure operations — provisioning, monitoring, or management actions. Plaintext credentials exist transiently in server memory during active operations only and are never written to logs or persisted outside of encrypted storage.</p>
 
         <h3>Platform limits by tier</h3>
         <p>Operator: 3 platforms. Team: 10 platforms. Infrastructure: unlimited. You can connect any combination of supported providers up to your tier limit.</p>
@@ -389,7 +390,7 @@
             <tr><td>Connection timestamps</td><td class="bad">Collected</td><td class="bad">Collected</td><td class="good">Not stored</td></tr>
             <tr><td>Email address</td><td class="bad">Required</td><td class="bad">Required</td><td class="good">Not required</td></tr>
             <tr><td>Billing identity</td><td class="bad">Yes</td><td class="bad">Yes</td><td class="good">No</td></tr>
-            <tr><td>Legally compellable</td><td class="bad">Yes</td><td class="bad">Yes</td><td class="good">Nothing to compel</td></tr>
+            <tr><td>Identity, IP, billing compellable</td><td class="bad">Yes</td><td class="bad">Yes</td><td class="good">None held — cannot produce</td></tr>
           </tbody>
         </table>
 
@@ -508,7 +509,7 @@
           <p class="footer-col-heading">Resources</p>
           <a href="/docs.html">Documentation</a>
           <a href="https://github.com/Arcticbison-Dev/Rudis" target="_blank">GitHub</a>
-          <a href="https://altostratus.replit.app" target="_blank">Launch Control</a>
+          <a href="/contact.html">Request Access</a>
         </div>
       </div>
     </div>
