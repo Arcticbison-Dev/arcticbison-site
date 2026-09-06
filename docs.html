@@ -483,6 +483,97 @@
         </div>
       </div>
 
+      <!-- WHAT WE COLLECT -->
+      <div class="docs-section" id="data-spec">
+        <p class="docs-eyebrow">Data architecture</p>
+        <h2>What we collect</h2>
+        <p>This is the complete list of data Altostratus holds on your account. Nothing else is stored.</p>
+
+        <h3>Handle</h3>
+        <p>The pseudonymous name you choose at signup. It carries no association with your real identity unless you make it identifiable. It is used to identify your session and your account in the audit log.</p>
+
+        <h3>Recovery key (one-way hash only)</h3>
+        <p>Your recovery key is shown to you once in plaintext and never stored in readable form. Altostratus stores only a one-way HMAC-SHA256 representation — enough to verify the key you provide, not enough to reconstruct it. There is no password reset mechanism. If you lose the key, the account cannot be recovered.</p>
+
+        <h3>Encrypted provider credentials</h3>
+        <p>The API credentials you supply to connect cloud providers are encrypted at rest using AES-256-GCM before being written to the database. They are decrypted server-side only when you initiate an infrastructure operation — provisioning, monitoring, or management. Plaintext credentials exist in server memory only during active operations and are not logged or written to disk.</p>
+
+        <h3>Subscription status</h3>
+        <p>Your current plan tier and subscription state. No payment identity is stored — payments are made in cryptocurrency and Altostratus receives only a confirmation that payment was received, not who sent it.</p>
+
+        <h3>Audit log</h3>
+        <p>A record of actions taken within your account: the action type, the resource it affected, and a timestamp. IP addresses are not logged at any point. The audit log is visible to your account and supports the Emergency Decommission feature.</p>
+
+        <h3>What is explicitly not collected</h3>
+        <p>Email address · phone number · real name · date of birth · government ID · IP address · browser fingerprint · device identifiers · workload content · traffic payloads · data stored on your infrastructure. The control plane knows that your infrastructure exists — it cannot see what runs on it.</p>
+      </div>
+
+      <!-- PLATFORM COMPARISON -->
+      <div class="docs-section" id="data-comparison">
+        <p class="docs-eyebrow">Data architecture</p>
+        <h2>Platform comparison</h2>
+        <p>How Altostratus compares to conventional infrastructure and networking platforms on the data they collect and what can be compelled from them.</p>
+
+        <div style="overflow-x:auto; margin-top:1.5rem;">
+          <table style="width:100%; border-collapse:collapse; font-size:0.875rem;">
+            <thead>
+              <tr style="border-bottom:1px solid var(--border-light);">
+                <th style="text-align:left; padding:0.6rem 1rem 0.6rem 0; color:var(--text-muted); font-weight:500; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em;">Data point</th>
+                <th style="text-align:left; padding:0.6rem 1rem; color:var(--text-muted); font-weight:500; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em;">Tailscale</th>
+                <th style="text-align:left; padding:0.6rem 1rem; color:var(--text-muted); font-weight:500; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em;">Major cloud providers</th>
+                <th style="text-align:left; padding:0.6rem 1rem; color:var(--text-muted); font-weight:500; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em;">Altostratus</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:0.65rem 1rem 0.65rem 0; color:var(--text-secondary);">IP address</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Collected</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Collected</td>
+                <td style="padding:0.65rem 1rem; color:#52a869;">Not stored</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:0.65rem 1rem 0.65rem 0; color:var(--text-secondary);">Device / hostname</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Collected</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Collected</td>
+                <td style="padding:0.65rem 1rem; color:#52a869;">Not collected</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:0.65rem 1rem 0.65rem 0; color:var(--text-secondary);">Connection timestamps</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Collected</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Collected</td>
+                <td style="padding:0.65rem 1rem; color:#52a869;">Not stored</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:0.65rem 1rem 0.65rem 0; color:var(--text-secondary);">Email address</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Required</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Required</td>
+                <td style="padding:0.65rem 1rem; color:#52a869;">Not required</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:0.65rem 1rem 0.65rem 0; color:var(--text-secondary);">Billing identity link</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Yes</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Yes</td>
+                <td style="padding:0.65rem 1rem; color:#52a869;">No</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border-light);">
+                <td style="padding:0.65rem 1rem 0.65rem 0; color:var(--text-secondary);">Workload content visible to provider</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Possible</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Yes</td>
+                <td style="padding:0.65rem 1rem; color:#52a869;">No</td>
+              </tr>
+              <tr>
+                <td style="padding:0.65rem 1rem 0.65rem 0; color:var(--text-secondary);">Identity, IP, billing compellable</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Yes</td>
+                <td style="padding:0.65rem 1rem; color:#e05252;">Yes</td>
+                <td style="padding:0.65rem 1rem; color:#52a869;">None held — cannot produce</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="margin-top:1.25rem; font-size:0.85rem; color:var(--text-muted);">For the full privacy architecture, see the <a href="/privacy.html" style="color:var(--accent);">Privacy Policy</a> and the <a href="/architecture.html" style="color:var(--accent);">Architecture</a> page.</p>
+      </div>
+
     </main>
   </div>
 
