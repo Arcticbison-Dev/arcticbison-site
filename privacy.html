@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Arctic Bison</title>
+  <meta name="description" content="Arctic Bison Privacy Policy. No email, no phone, no real name. Anonymous handle and recovery key only." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <script defer data-domain="arcticbison.com" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-mark">&#x25B2;</span>
+      <span class="nav-logo-text">Arctic Bison</span>
+    </a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/altostratus.html">Altostratus</a>
+      <a href="/rudis.html">Rudis</a>
+      <a href="/architecture.html">Architecture</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <a href="/contact.html" class="nav-cta">Request Access →</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">Legal</p>
+    <h1 class="page-hero-headline">Privacy Policy</h1>
+    <p class="page-hero-sub">
+      Effective date: September 2026. Arctic Bison LLC, 30 N Gould St Ste N, Sheridan, WY 82801.
+    </p>
+  </div>
+
+  <!-- CONTENT -->
+  <section class="content-section">
+    <div class="container" style="max-width: 740px;">
+
+      <div style="background:var(--bg-elevated); border:1px solid var(--border-light); border-left:2px solid var(--accent); border-radius:var(--radius); padding:1rem 1.25rem; margin-bottom:2.5rem;">
+        <p style="font-size:0.75rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.08em; color:var(--text-muted); margin-bottom:0.4rem;">Short version</p>
+        <p style="font-size:0.9rem; color:var(--text-secondary); line-height:1.7; margin:0;">
+          Altostratus collects no email address, no phone number, no real name, and no payment identity. You create an anonymous handle and a recovery key. That is the full extent of your identity in the system. We do not sell data, serve ads, or share your information with third parties.
+        </p>
+      </div>
+
+      <h2 style="font-size:1.05rem; font-weight:600; color:var(--text-primary); margin:2rem 0 0.6rem;">1. Who We Are</h2>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem;">
+        Arctic Bison LLC operates the Altostratus infrastructure management platform and the Rudis crypto billing notifier. This policy applies to information processed when you use these products or visit arcticbison.com.
+      </p>
+
+      <h2 style="font-size:1.05rem; font-weight:600; color:var(--text-primary); margin:2rem 0 0.6rem;">2. What We Collect</h2>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem; margin-bottom:0.75rem;">
+        <strong style="color:var(--text-primary);">Account identifier.</strong> A handle you choose at signup. The handle is pseudonymous — it carries no association with your real identity unless you choose to make it identifiable.
+      </p>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem; margin-bottom:0.75rem;">
+        <strong style="color:var(--text-primary);">Recovery key.</strong> A cryptographically derived recovery key is generated at account creation. The plaintext key is shown to you once and is not retained by Altostratus. We store a one-way HMAC-SHA256 representation only. There is no password recovery mechanism — the key you save is the only path to account recovery.
+      </p>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem; margin-bottom:0.75rem;">
+        <strong style="color:var(--text-primary);">Provider credentials.</strong> If you connect cloud infrastructure providers, the API credentials you supply are encrypted at rest using AES-256-GCM and stored in encrypted form in the database. They are decrypted server-side only when you initiate infrastructure operations — provisioning, monitoring, or management actions. Plaintext credentials exist transiently in server memory during active operations only and are not written to logs or persisted outside of encrypted storage.
+      </p>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem; margin-bottom:0.75rem;">
+        <strong style="color:var(--text-primary);">Subscription status.</strong> We retain your subscription tier and payment status. Payments are made in cryptocurrency (Bitcoin, Lightning Network, or Monero). No credit card number, bank account, or payment identity is collected or stored.
+      </p>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem; margin-bottom:0.75rem;">
+        <strong style="color:var(--text-primary);">Audit log.</strong> Altostratus maintains an audit log of actions taken within your account — the action type, the resource affected, and a timestamp. IP addresses are not logged. The audit log is accessible to your account and is used to support the account security features of the platform.
+      </p>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem;">
+        <strong style="color:var(--text-primary);">Website analytics.</strong> arcticbison.com uses Plausible Analytics, a privacy-preserving analytics tool that does not use cookies, does not track individuals across sites, and does not collect personally identifiable information. Aggregate traffic data (page views, referrer, country) is processed by Plausible.
+      </p>
+
+      <h2 style="font-size:1.05rem; font-weight:600; color:var(--text-primary); margin:2rem 0 0.6rem;">3. What We Do Not Collect</h2>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem;">
+        We do not collect your email address, phone number, real name, date of birth, government ID, IP address, browser fingerprint, or device identifiers. We do not collect or inspect the workloads, data, or traffic that run on the infrastructure you manage through Altostratus. The control plane knows that your infrastructure exists — it cannot see what runs on it or what data it holds.
+      </p>
+
+      <h2 style="font-size:1.05rem; font-weight:600; color:var(--text-primary); margin:2rem 0 0.6rem;">4. AI Assist</h2>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem;">
+        AI Assist is a bring-your-own-key (BYOK) feature. You supply your own API key from Anthropic; that key is stored encrypted server-side and used only when you initiate an AI Assist session. When AI Assist is enabled, your prompts and redacted infrastructure context are sent directly to Anthropic's API using your key. IP addresses are redacted from all AI Assist queries in standard mode. Extended mode, which includes IP addresses, requires explicit opt-in. When AI Assist is toggled off, zero bytes are transmitted to any AI provider. Arctic Bison does not retain the content of AI Assist queries or responses.
+      </p>
+
+      <h2 style="font-size:1.05rem; font-weight:600; color:var(--text-primary); margin:2rem 0 0.6rem;">5. How We Use Information</h2>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem;">
+        Information we hold is used solely to operate the platform: authenticating your session, executing infrastructure operations you initiate, processing subscription payments, and maintaining platform security. We do not use your information for advertising, profiling, or any purpose other than operating the service.
+      </p>
+
+      <h2 style="font-size:1.05rem; font-weight:600; color:var(--text-primary); margin:2rem 0 0.6rem;">6. Sharing and Disclosure</h2>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem; margin-bottom:0.75rem;">
+        We do not sell, rent, or share your information with third parties for commercial purposes.
+      </p>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem; margin-bottom:0.75rem;">
+        <strong style="color:var(--text-primary);">Legal compulsion.</strong> Altostratus is designed to minimize what is available to compel. In response to a valid legal order, Arctic Bison could be required to disclose: the anonymous handle associated with an account, subscription status, the encrypted provider credentials stored on the account, and the audit log (action types and timestamps, no IPs). Provider credentials are encrypted server-side; a court order that includes the server environment would include the encryption key. What we cannot be compelled to disclose — because it does not exist in our systems — is your identity, your IP address, your billing identity, and the content of your workloads. We cannot produce what we do not hold.
+      </p>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem;">
+        <strong style="color:var(--text-primary);">Infrastructure providers.</strong> When you provision resources through Altostratus, your encrypted credentials are used to communicate with third-party infrastructure providers on your behalf. Those providers operate under their own terms and privacy policies. Altostratus does not control those providers' data practices.
+      </p>
+
+      <h2 style="font-size:1.05rem; font-weight:600; color:var(--text-primary); margin:2rem 0 0.6rem;">7. Data Retention</h2>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem;">
+        Account data is retained for the duration of your subscription and for a reasonable period thereafter to support account recovery. If you initiate an Emergency Decommission through the platform, your infrastructure is destroyed and your encrypted provider credentials are revoked. Your account record (handle, subscription status) is not deleted by Emergency Decommission — only the infrastructure and credentials are wiped. To request full account deletion, contact us at <a href="mailto:sales@altostratus.com" style="color:var(--accent);">sales@altostratus.com</a>.
+      </p>
+
+      <h2 style="font-size:1.05rem; font-weight:600; color:var(--text-primary); margin:2rem 0 0.6rem;">8. Security</h2>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem;">
+        Provider credentials are encrypted at rest using AES-256-GCM. Project data-at-rest uses a two-tier key architecture (key encryption key / data encryption key). All platform traffic uses TLS. Session tokens are managed server-side with CSRF protection. The platform includes audit logging, RBAC, and access controls designed to limit exposure within the control plane.
+      </p>
+
+      <h2 style="font-size:1.05rem; font-weight:600; color:var(--text-primary); margin:2rem 0 0.6rem;">9. Contact</h2>
+      <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem;">
+        Questions about this policy: <a href="mailto:sales@altostratus.com" style="color:var(--accent);">sales@altostratus.com</a><br>
+        Arctic Bison LLC, 30 N Gould St Ste N, Sheridan, WY 82801
+      </p>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo-mark">&#x25B2;</span>
+        <span class="footer-logo-text">Arctic Bison</span>
+        <p class="footer-tagline">Privacy. Anonymity. Freedom of movement.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <p class="footer-col-heading">Products</p>
+          <a href="/altostratus.html">Altostratus</a>
+          <a href="/rudis.html">Rudis</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Company</p>
+          <a href="/about.html">About</a>
+          <a href="/docs.html">Docs</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Resources</p>
+          <a href="https://github.com/Arcticbison-Dev/Rudis" target="_blank">GitHub</a>
+          <a href="/contact.html">Request Access</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Arctic Bison, LLC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="/privacy.html" style="color: var(--text-primary);">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
