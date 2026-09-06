@@ -22,9 +22,10 @@
       <a href="/altostratus.html" style="color: var(--text-primary);">Altostratus</a>
       <a href="/rudis.html">Rudis</a>
       <a href="/docs.html">Docs</a>
+      <a href="/architecture.html">Architecture</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="https://altostratus.replit.app" class="nav-cta" target="_blank">Launch Control →</a>
+    <a href="/contact.html" class="nav-cta">Request Access →</a>
   </nav>
 
   <!-- HERO -->
@@ -37,7 +38,7 @@
       your workloads live.
     </p>
     <div class="hero-ctas">
-      <a href="https://altostratus.replit.app" class="btn-primary" target="_blank">Get Started →</a>
+      <a href="/contact.html" class="btn-primary">Request Access →</a>
       <a href="#pricing" class="btn-secondary">View Pricing</a>
     </div>
     <div class="trust-pills">
@@ -59,13 +60,13 @@
         <div class="feature-card">
           <div class="feature-card-tag">Zero-trust</div>
           <h3>Enterprise Security</h3>
-          <p>End-to-end encrypted tunnels isolate your traffic from every provider layer. No cloud vendor, ISP, or third party can observe or intercept your data in transit.</p>
+          <p>End-to-end encrypted tunnels prevent infrastructure providers and intermediary networks from inspecting workload traffic in plaintext. What crosses the wire is ciphertext.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-card-tag">Any cloud</div>
           <h3>Multi-Platform Orchestration</h3>
-          <p>Deploy across FlokiNET, Hetzner, Exoscale, Njalla, coin.host, or any jurisdiction — all unified under one encrypted control plane. Your infrastructure follows your rules.</p>
+          <p>One control plane. Multiple sovereign providers. Multiple jurisdictions. No provider holds a complete picture of your infrastructure — and no single legal order reaches all of it.</p>
         </div>
 
         <div class="feature-card">
@@ -77,7 +78,7 @@
         <div class="feature-card">
           <div class="feature-card-tag">BYOK</div>
           <h3>AI Assist</h3>
-          <p>Natural-language infrastructure planning powered by your own Anthropic API key. Generate and execute action plans, run processing chains. Your key never leaves your deployment.</p>
+          <p>Natural-language infrastructure planning powered by your own Anthropic API key. Your key stays server-side — it never reaches the browser. Toggle off means zero bytes transmitted to any external AI service.</p>
         </div>
 
         <div class="feature-card">
@@ -87,9 +88,9 @@
         </div>
 
         <div class="feature-card">
-          <div class="feature-card-tag">Advanced</div>
-          <h3>Security Tools</h3>
-          <p>Honeypots, port knocking, decoy data deployment, DNS security monitoring. Built-in offensive-defensive tooling for operators who need it.</p>
+          <div class="feature-card-tag">Active defense</div>
+          <h3>Active Defense &amp; Deception</h3>
+          <p>Honeypots, canary tokens, port knocking, decoy data injection, DNS security monitoring. You don't just defend the perimeter — you own it.</p>
         </div>
 
       </div>
@@ -101,7 +102,7 @@
     <div class="container">
       <p class="data-table-label">Privacy architecture</p>
       <h2 class="data-table-heading">What conventional platforms collect. What we don't.</h2>
-      <p class="data-table-sub">This is not a privacy policy. It is an architectural statement.</p>
+      <p class="data-table-sub">This is not a privacy policy. It is an architectural statement. <a href="/architecture.html" style="color:var(--accent);">How the architecture works →</a></p>
 
       <table class="data-table">
         <thead>
@@ -144,10 +145,10 @@
             <td class="good">No</td>
           </tr>
           <tr>
-            <td>Legally compellable</td>
+            <td>Identity, IP, billing compellable</td>
             <td class="bad">Yes</td>
             <td class="bad">Yes</td>
-            <td class="good">Nothing to compel</td>
+            <td class="good">None held — cannot produce</td>
           </tr>
         </tbody>
       </table>
@@ -157,52 +158,30 @@
   <!-- PROVIDERS -->
   <section class="providers-section">
     <div class="container">
-      <p class="section-label">Supported providers</p>
-      <h2 style="font-size:1.4rem; font-weight:700; letter-spacing:-0.02em; margin-bottom:0.5rem;">Privacy-first providers, first.</h2>
-      <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:0; max-width:540px;">We connect to the providers that take privacy seriously — and major commercial clouds for operators who need to span jurisdictions. You choose where your workloads live.</p>
+      <p class="section-label">Infrastructure strategy</p>
+      <h2 style="font-size:1.4rem; font-weight:700; letter-spacing:-0.02em; margin-bottom:0.5rem;">One control plane. Multiple jurisdictions. No provider holds the full picture.</h2>
+      <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1.75rem; max-width:580px;">Altostratus connects to a curated set of sovereign-oriented and commercial infrastructure providers. No provider lock-in. No single legal order reaches everything. You choose where your workloads live.</p>
 
       <div class="providers-grid">
         <div class="provider-row">
-          <span class="provider-name privacy-first">FlokiNET</span>
-          <span class="provider-locations">Iceland, Romania, Finland, Netherlands</span>
+          <span class="provider-name privacy-first">Sovereignty-first hosting</span>
+          <span class="provider-locations">Privacy jurisdictions · offshore infrastructure · no-KYC options · Iceland · Romania · Switzerland · Panama</span>
         </div>
         <div class="provider-row">
-          <span class="provider-name privacy-first">Hetzner Cloud</span>
-          <span class="provider-locations">Germany, Finland, US, Singapore</span>
+          <span class="provider-name privacy-first">European infrastructure</span>
+          <span class="provider-locations">EU data residency · GDPR-aligned compute · Germany · Finland · Austria · France · Netherlands · Poland</span>
         </div>
         <div class="provider-row">
-          <span class="provider-name privacy-first">Exoscale</span>
-          <span class="provider-locations">Switzerland, Austria, Germany, Bulgaria</span>
+          <span class="provider-name privacy-first">Distributed compute</span>
+          <span class="provider-locations">Decentralized node networks · no single datacenter dependency · US and EU coverage</span>
         </div>
         <div class="provider-row">
-          <span class="provider-name privacy-first">Njalla</span>
-          <span class="provider-locations">Sweden, Iceland, Germany, US, Panama</span>
-        </div>
-        <div class="provider-row">
-          <span class="provider-name privacy-first">coin.host</span>
-          <span class="provider-locations">Switzerland — no KYC</span>
-        </div>
-        <div class="provider-row">
-          <span class="provider-name">Hivenet</span>
-          <span class="provider-locations">Distributed US and EU nodes</span>
-        </div>
-        <div class="provider-row">
-          <span class="provider-name">Scaleway</span>
-          <span class="provider-locations">Paris, Amsterdam, Warsaw, Frankfurt</span>
-        </div>
-        <div class="provider-row">
-          <span class="provider-name">Azure</span>
-          <span class="provider-locations">Global</span>
-        </div>
-        <div class="provider-row">
-          <span class="provider-name">GCP</span>
-          <span class="provider-locations">Global</span>
-        </div>
-        <div class="provider-row">
-          <span class="provider-name">Fly.io</span>
-          <span class="provider-locations">Global edge</span>
+          <span class="provider-name">Commercial clouds</span>
+          <span class="provider-locations">For operators who need global scale or cross-jurisdiction span — available where your mission requires</span>
         </div>
       </div>
+
+      <p style="margin-top:1.5rem; font-size:0.8rem; color:var(--text-muted); font-family:var(--font-mono);">Provider details available after access is granted. We don't publish our full integration list publicly.</p>
     </div>
   </section>
 
@@ -228,7 +207,7 @@
             <li>AI Assist (BYOK)</li>
             <li>Multi-region deployments</li>
           </ul>
-          <a href="https://altostratus.replit.app" class="pricing-cta" target="_blank">Get Started</a>
+          <a href="/contact.html" class="pricing-cta">Request Access</a>
         </div>
 
         <div class="pricing-card featured">
@@ -245,7 +224,7 @@
             <li>Team RBAC</li>
             <li>24hr SLA</li>
           </ul>
-          <a href="https://altostratus.replit.app" class="pricing-cta" target="_blank">Get Started</a>
+          <a href="/contact.html" class="pricing-cta">Request Access</a>
         </div>
 
         <div class="pricing-card">
@@ -262,7 +241,7 @@
             <li>Team RBAC</li>
             <li>4hr SLA</li>
           </ul>
-          <a href="https://altostratus.replit.app" class="pricing-cta" target="_blank">Get Started</a>
+          <a href="/contact.html" class="pricing-cta">Request Access</a>
         </div>
 
         <div class="pricing-card">
@@ -295,7 +274,7 @@
         No email required. No credit card.
       </p>
       <div class="cta-buttons">
-        <a href="https://altostratus.replit.app" class="btn-primary" target="_blank">Launch Control →</a>
+        <a href="/contact.html" class="btn-primary">Request Access →</a>
         <a href="/contact.html" class="btn-secondary">Talk to us</a>
       </div>
     </div>
@@ -324,7 +303,7 @@
         <div class="footer-col">
           <p class="footer-col-heading">Resources</p>
           <a href="https://github.com/Arcticbison-Dev/Rudis" target="_blank">GitHub</a>
-          <a href="https://altostratus.replit.app" target="_blank">Launch Control</a>
+          <a href="/contact.html">Request Access</a>
         </div>
       </div>
     </div>
