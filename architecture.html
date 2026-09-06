@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architecture — Altostratus</title>
+  <meta name="description" content="How Altostratus is built: control plane architecture, the Sovereignty Stack, and why no single legal order can reach your entire infrastructure." />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <script defer data-domain="arcticbison.com" src="https://plausible.io/js/script.js"></script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-mark">&#x25B2;</span>
+      <span class="nav-logo-text">Arctic Bison</span>
+    </a>
+    <div class="nav-links">
+      <a href="/about.html">About</a>
+      <a href="/altostratus.html">Altostratus</a>
+      <a href="/rudis.html">Rudis</a>
+      <a href="/docs.html">Docs</a>
+      <a href="/architecture.html" style="color: var(--text-primary);">Architecture</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <a href="/contact.html" class="nav-cta">Request Access →</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <p class="page-hero-eyebrow">How it works</p>
+    <h1 class="page-hero-headline">Built against the compellability problem.</h1>
+    <p class="page-hero-sub">
+      Conventional infrastructure means your provider holds your infrastructure, your credentials, and often your data.
+      A court order against one provider is a court order against everything.
+      Altostratus is built against this threat model.
+    </p>
+  </div>
+
+  <!-- SECTION 1: THE PROBLEM -->
+  <section class="content-section" style="padding-bottom:0;">
+    <div class="container" style="max-width:780px;">
+
+      <p class="section-label">The threat model</p>
+      <h2 style="font-size:1.4rem; font-weight:700; letter-spacing:-0.02em; margin-bottom:1rem;">The compellability problem.</h2>
+
+      <p style="color:var(--text-secondary); line-height:1.8; font-size:0.95rem; margin-bottom:1rem;">
+        When you run infrastructure on a single provider — or even across multiple providers under a single identity — you have created a single point of compellability. One valid legal order, one warrant, one government request to one provider is sufficient to access everything: your instance list, your credentials, your account identity, your billing record. The provider can be compelled to produce all of it. You have no visibility into when this happens and no ability to stop it.
+      </p>
+      <p style="color:var(--text-secondary); line-height:1.8; font-size:0.95rem; margin-bottom:1rem;">
+        This is not a hypothetical. Cloud providers regularly receive and comply with legal demands across jurisdictions. Most have legal teams whose job is to process these requests efficiently.
+      </p>
+      <p style="color:var(--text-secondary); line-height:1.8; font-size:0.95rem;">
+        The conventional response — "we'll fight for your data" — is a policy, not an architecture. Policies change. Architectures don't.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- SECTION 2: THE ARCHITECTURE -->
+  <section class="content-section">
+    <div class="container" style="max-width:780px;">
+
+      <p class="section-label">Control plane</p>
+      <h2 style="font-size:1.4rem; font-weight:700; letter-spacing:-0.02em; margin-bottom:1rem;">The control plane doesn't see your workloads.</h2>
+
+      <p style="color:var(--text-secondary); line-height:1.8; font-size:0.95rem; margin-bottom:2rem;">
+        Altostratus sits between you and your infrastructure providers. It is an orchestration layer — it knows what infrastructure exists, where it runs, and its operational state. It does not have access to what runs on that infrastructure, what data it holds, or what your users do.
+      </p>
+
+      <!-- ARCHITECTURE DIAGRAM -->
+      <div style="background:var(--bg-elevated); border:1px solid var(--border-light); border-radius:var(--radius); padding:2rem 1.75rem; margin-bottom:2rem; font-family:var(--font-mono); font-size:0.8rem;">
+
+        <div style="display:flex; flex-direction:column; gap:0; max-width:580px; margin:0 auto;">
+
+          <div style="display:flex; align-items:center; gap:1rem; padding:0.75rem 1rem; background:var(--bg-surface); border:1px solid var(--border-light); border-radius:6px;">
+            <span style="color:var(--accent); font-weight:600;">OPERATOR</span>
+            <span style="color:var(--text-muted);">→</span>
+            <span style="color:var(--text-secondary);">Handle + recovery key. No email. No PII.</span>
+          </div>
+
+          <div style="display:flex; justify-content:center; padding:0.25rem 0; color:var(--text-muted);">↓ TLS</div>
+
+          <div style="border:1px solid var(--accent); border-radius:6px; padding:1rem 1.25rem; background:var(--bg-elevated);">
+            <div style="color:var(--text-primary); font-weight:600; margin-bottom:0.75rem;">ALTOSTRATUS CONTROL PLANE</div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.5rem;">
+              <div style="padding:0.4rem 0.6rem; border:1px solid var(--border-light); border-radius:4px; color:var(--text-secondary);">Identity layer — handle only</div>
+              <div style="padding:0.4rem 0.6rem; border:1px solid var(--border-light); border-radius:4px; color:var(--text-secondary);">Auth — recovery key, no email reset</div>
+              <div style="padding:0.4rem 0.6rem; border:1px solid var(--border-light); border-radius:4px; color:var(--text-secondary);">Orchestration — what exists, not what runs</div>
+              <div style="padding:0.4rem 0.6rem; border:1px solid var(--border-light); border-radius:4px; color:var(--text-secondary);">Monitoring — read-only telemetry, no payload</div>
+              <div style="padding:0.4rem 0.6rem; border:1px solid var(--border-light); border-radius:4px; color:var(--text-secondary);">Billing — crypto only, no payment identity</div>
+              <div style="padding:0.4rem 0.6rem; border:1px solid var(--border-light); border-radius:4px; color:var(--text-secondary);">Audit log — action + timestamp, no IPs</div>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:center; padding:0.25rem 0; color:var(--text-muted);">↓ Encrypted API calls (your credentials)</div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.5rem;">
+            <div style="padding:0.6rem 0.75rem; background:var(--bg-surface); border:1px solid var(--border-light); border-radius:6px; text-align:center;">
+              <div style="color:var(--text-primary); font-weight:600; font-size:0.75rem; margin-bottom:0.25rem;">PROVIDER A</div>
+              <div style="color:var(--text-muted); font-size:0.7rem;">Jurisdiction 1</div>
+            </div>
+            <div style="padding:0.6rem 0.75rem; background:var(--bg-surface); border:1px solid var(--border-light); border-radius:6px; text-align:center;">
+              <div style="color:var(--text-primary); font-weight:600; font-size:0.75rem; margin-bottom:0.25rem;">PROVIDER B</div>
+              <div style="color:var(--text-muted); font-size:0.7rem;">Jurisdiction 2</div>
+            </div>
+            <div style="padding:0.6rem 0.75rem; background:var(--bg-surface); border:1px solid var(--border-light); border-radius:6px; text-align:center;">
+              <div style="color:var(--text-primary); font-weight:600; font-size:0.75rem; margin-bottom:0.25rem;">PROVIDER C</div>
+              <div style="color:var(--text-muted); font-size:0.7rem;">Jurisdiction 3</div>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:center; padding:0.25rem 0; color:var(--text-muted);">↓ WireGuard (instance-to-instance) · mTLS (service-to-service)</div>
+
+          <div style="padding:0.75rem 1rem; background:var(--bg-surface); border:1px solid var(--border-light); border-radius:6px; text-align:center; color:var(--text-secondary);">
+            YOUR WORKLOADS — Altostratus cannot see what runs here
+          </div>
+
+        </div>
+      </div>
+
+      <div style="background:var(--bg-elevated); border:1px solid var(--border-light); border-left:2px solid var(--accent); border-radius:var(--radius); padding:1rem 1.25rem; margin-bottom:1.5rem;">
+        <p style="font-size:0.95rem; color:var(--text-primary); line-height:1.7; margin:0; font-weight:500;">
+          The control plane knows your infrastructure exists. It cannot see what runs on it, what data it holds, or what your operators do.
+        </p>
+      </div>
+
+      <p style="color:var(--text-secondary); line-height:1.8; font-size:0.95rem;">
+        Between instances, WireGuard provides encrypted tunnels at the network layer. Between services, mutual TLS provides authenticated, encrypted channels. In both cases, Altostratus configures the encryption — it does not terminate it or hold the session keys.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: SOVEREIGNTY STACK -->
+  <section class="content-section" style="background:var(--bg-elevated); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);">
+    <div class="container" style="max-width:780px;">
+
+      <p class="section-label">The Sovereignty Stack</p>
+      <h2 style="font-size:1.4rem; font-weight:700; letter-spacing:-0.02em; margin-bottom:0.5rem;">Three properties. All required.</h2>
+      <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:2rem; max-width:540px;">Infrastructure sovereignty isn't a feature — it's a set of architectural properties that either all hold or none of them do.</p>
+
+      <div style="display:grid; grid-template-columns:1fr; gap:1.25rem;">
+
+        <div style="padding:1.25rem 1.5rem; border:1px solid var(--border-light); border-radius:var(--radius); background:var(--bg-surface);">
+          <div style="display:flex; align-items:baseline; gap:0.75rem; margin-bottom:0.6rem;">
+            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--accent); text-transform:uppercase; letter-spacing:0.1em;">01</span>
+            <h3 style="font-size:1rem; font-weight:600; color:var(--text-primary); margin:0;">Architecture anonymity</h3>
+          </div>
+          <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem; margin:0;">
+            No PII at any layer. Authentication is handle-based — no email address, no phone number, no government identity. Billing is anonymous by design: cryptocurrency only, no credit card, no bank association. Even Altostratus itself holds no record that connects your account to a real-world identity. A court order cannot produce what was never collected.
+          </p>
+        </div>
+
+        <div style="padding:1.25rem 1.5rem; border:1px solid var(--border-light); border-radius:var(--radius); background:var(--bg-surface);">
+          <div style="display:flex; align-items:baseline; gap:0.75rem; margin-bottom:0.6rem;">
+            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--accent); text-transform:uppercase; letter-spacing:0.1em;">02</span>
+            <h3 style="font-size:1rem; font-weight:600; color:var(--text-primary); margin:0;">Full data ownership</h3>
+          </div>
+          <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem; margin:0;">
+            Your workloads run on infrastructure you control, at providers you choose, under credentials you supply. Altostratus is the control plane — it orchestrates, it doesn't host. Your data is not on our infrastructure. Our infrastructure is the management layer between you and yours.
+          </p>
+        </div>
+
+        <div style="padding:1.25rem 1.5rem; border:1px solid var(--border-light); border-radius:var(--radius); background:var(--bg-surface);">
+          <div style="display:flex; align-items:baseline; gap:0.75rem; margin-bottom:0.6rem;">
+            <span style="font-size:0.7rem; font-family:var(--font-mono); color:var(--accent); text-transform:uppercase; letter-spacing:0.1em;">03</span>
+            <h3 style="font-size:1rem; font-weight:600; color:var(--text-primary); margin:0;">No single point of compellability</h3>
+          </div>
+          <p style="color:var(--text-secondary); line-height:1.75; font-size:0.9rem; margin:0;">
+            Infrastructure distributed across multiple providers in multiple jurisdictions means no single legal order reaches all of it. A warrant served on Provider A reaches what runs in Provider A's jurisdiction — and nothing else. The more distributed your deployment, the higher the coordination cost of any adversarial action against it.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: PROVIDER STRATEGY -->
+  <section class="content-section">
+    <div class="container" style="max-width:780px;">
+
+      <p class="section-label">Provider strategy</p>
+      <h2 style="font-size:1.4rem; font-weight:700; letter-spacing:-0.02em; margin-bottom:1rem;">No provider holds a complete picture.</h2>
+
+      <p style="color:var(--text-secondary); line-height:1.8; font-size:0.95rem; margin-bottom:1rem;">
+        A reseller gives you one provider. Altostratus gives you sovereign distribution across a curated set of infrastructure ecosystems: sovereignty-first hosting in privacy jurisdictions, European infrastructure with strong data residency protections, distributed compute with no single datacenter dependency, and major commercial clouds for operators who need global reach.
+      </p>
+      <p style="color:var(--text-secondary); line-height:1.8; font-size:0.95rem; margin-bottom:1rem;">
+        Each provider account uses credentials you supply. Those credentials are encrypted at rest server-side and decrypted only when you initiate infrastructure operations. Each provider sees only the resources you've provisioned with them — not your account at other providers, not your Altostratus identity, not your billing relationship.
+      </p>
+      <p style="color:var(--text-secondary); line-height:1.8; font-size:0.95rem;">
+        Provider details — which providers are supported, under what terms — are available after access is granted. We don't publish the full integration list publicly.
+      </p>
+
+      <div style="margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--border-light);">
+        <p style="font-size:0.9rem; color:var(--text-secondary); margin-bottom:1rem;">Ready to understand how this applies to your operational requirements?</p>
+        <a href="/contact.html" class="btn-primary">Request Access →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo-mark">&#x25B2;</span>
+        <span class="footer-logo-text">Arctic Bison</span>
+        <p class="footer-tagline">Privacy. Anonymity. Freedom of movement.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <p class="footer-col-heading">Products</p>
+          <a href="/altostratus.html">Altostratus</a>
+          <a href="/rudis.html">Rudis</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Company</p>
+          <a href="/about.html">About</a>
+          <a href="/docs.html">Docs</a>
+          <a href="/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <p class="footer-col-heading">Resources</p>
+          <a href="/architecture.html">Architecture</a>
+          <a href="https://github.com/Arcticbison-Dev/Rudis" target="_blank">GitHub</a>
+          <a href="/contact.html">Request Access</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Arctic Bison, LLC. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
