@@ -4,10 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arctic Bison — Privacy. Anonymity. Freedom of Movement.</title>
-  <meta name="description" content="Arctic Bison builds infrastructure tools for operators who cannot afford to leave a trail." />
+  <meta name="description" content="Arctic Bison builds sovereign infrastructure tools for operators who cannot afford to leave a trail. Altostratus. Rudis." />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <script defer data-domain="arcticbison.com" src="https://plausible.io/js/script.js"></script>
+  <style>
+    .sovereignty-stack {
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-elevated);
+    }
+    .sovereignty-properties {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .sovereignty-property {
+      background: var(--bg-surface);
+      padding: 2.5rem;
+      transition: background 0.2s;
+    }
+    .sovereignty-property:hover { background: var(--bg-elevated); }
+    .sovereignty-number {
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+    .sovereignty-property h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+      line-height: 1.35;
+    }
+    .sovereignty-property p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .sovereignty-note {
+      margin-top: 2rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .sovereignty-note a {
+      color: var(--accent);
+      border-bottom: 1px solid rgba(74, 158, 255, 0.3);
+    }
+    .sovereignty-note a:hover { border-color: var(--accent); }
+    @media (max-width: 900px) {
+      .sovereignty-properties { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -21,11 +78,11 @@
       <a href="/about.html">About</a>
       <a href="/altostratus.html">Altostratus</a>
       <a href="/rudis.html">Rudis</a>
-      <a href="/docs.html">Docs</a>
       <a href="/architecture.html">Architecture</a>
+      <a href="/docs.html">Docs</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <a href="/contact.html" class="nav-cta">Request Access →</a>
+    <a href="https://altostratus-production.up.railway.app" class="nav-cta" target="_blank" rel="noopener">Launch Altostratus →</a>
   </nav>
 
   <!-- HERO -->
@@ -34,13 +91,63 @@
       <p class="hero-eyebrow">A culture before a company.</p>
       <h1 class="hero-headline">Privacy. Anonymity.<br>Freedom of movement.</h1>
       <p class="hero-body">
-        Arctic Bison builds infrastructure tools for operators who cannot afford to leave a trail.
+        Arctic Bison builds sovereign infrastructure tools for operators who cannot afford to leave a trail.
         We build them. We use them.
       </p>
       <div class="hero-ctas">
-        <a href="/altostratus.html" class="btn-primary">Altostratus →</a>
-        <a href="/rudis.html" class="btn-secondary">Rudis →</a>
+        <a href="https://altostratus-production.up.railway.app" class="btn-primary" target="_blank" rel="noopener">Launch Altostratus →</a>
+        <a href="/architecture.html" class="btn-secondary">How it's built →</a>
       </div>
+    </div>
+  </section>
+
+  <!-- SOVEREIGNTY STACK -->
+  <section class="sovereignty-stack">
+    <div class="container">
+      <p class="section-label">The Sovereignty Stack</p>
+      <h2 style="font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 700; letter-spacing: -0.02em; max-width: 560px; line-height: 1.25;">Three properties. All required. None of them optional.</h2>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); max-width: 540px; margin-top: 0.75rem; line-height: 1.7;">
+        Infrastructure sovereignty is not a feature you can add on. It is a set of architectural
+        properties that either all hold or none of them do.
+      </p>
+
+      <div class="sovereignty-properties">
+
+        <div class="sovereignty-property">
+          <p class="sovereignty-number">01</p>
+          <h3>Architecture anonymity</h3>
+          <p>
+            No PII at any layer. Authentication is handle-based — no email, no phone, no government
+            identity. Billing is anonymous by design: cryptocurrency only, no credit card, no bank
+            association. A court order cannot produce what was never collected.
+          </p>
+        </div>
+
+        <div class="sovereignty-property">
+          <p class="sovereignty-number">02</p>
+          <h3>Full data ownership</h3>
+          <p>
+            Your workloads run on infrastructure you control, at providers you choose, under credentials
+            you supply. Altostratus is the control plane — it orchestrates, it doesn't host. Your data
+            is not on our infrastructure.
+          </p>
+        </div>
+
+        <div class="sovereignty-property">
+          <p class="sovereignty-number">03</p>
+          <h3>No single point of compellability</h3>
+          <p>
+            Infrastructure distributed across multiple providers in multiple jurisdictions means no single
+            legal order reaches all of it. A warrant served on one provider reaches what runs in one
+            jurisdiction — and nothing else.
+          </p>
+        </div>
+
+      </div>
+
+      <p class="sovereignty-note">
+        Infrastructure sovereignty is an architectural problem, not a policy one. &rarr;&nbsp;<a href="/architecture.html">How the architecture works</a>
+      </p>
     </div>
   </section>
 
@@ -64,7 +171,10 @@
             <li>Anonymous accounts — handle and recovery key only.</li>
             <li>Paid in Bitcoin, Lightning, or Monero.</li>
           </ul>
-          <a href="/altostratus.html" class="product-card-link">Learn more →</a>
+          <div class="product-card-links">
+            <a href="https://altostratus-production.up.railway.app" class="product-card-link" target="_blank" rel="noopener">Launch →</a>
+            <a href="/altostratus.html" class="product-card-link">Learn more →</a>
+          </div>
         </div>
 
         <div class="product-card">
@@ -81,7 +191,7 @@
             <li>Docker-based deploy. Full source on GitHub.</li>
           </ul>
           <div class="product-card-links">
-            <a href="https://github.com/Arcticbison-Dev/Rudis" class="product-card-link" target="_blank">GitHub →</a>
+            <a href="https://github.com/Arcticbison-Dev/Rudis" class="product-card-link" target="_blank" rel="noopener">GitHub →</a>
             <a href="/rudis.html" class="product-card-link">Learn more →</a>
           </div>
         </div>
@@ -159,12 +269,13 @@
           <p class="footer-col-heading">Company</p>
           <a href="/about.html">About</a>
           <a href="/docs.html">Docs</a>
-      <a href="/contact.html">Contact</a>
+          <a href="/contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <p class="footer-col-heading">Resources</p>
-          <a href="https://github.com/Arcticbison-Dev/Rudis" target="_blank">GitHub</a>
-          <a href="/contact.html">Request Access</a>
+          <a href="/architecture.html">Architecture</a>
+          <a href="https://github.com/Arcticbison-Dev/Rudis" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://altostratus-production.up.railway.app" target="_blank" rel="noopener">Launch Altostratus</a>
         </div>
       </div>
     </div>
