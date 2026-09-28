@@ -184,8 +184,8 @@
     }
 
     .data-privacy-table td:first-child { color: var(--text-primary); font-weight: 500; }
-    .data-privacy-table td.good { color: var(--accent-green); font-family: var(--font-mono); font-size: 0.78rem; }
-    .data-privacy-table td.bad { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.78rem; }
+    .data-privacy-table td.good { color: var(--accent-green); font-family: var(--font-mono); font-size: 0.78rem; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
+    .data-privacy-table td.bad { color: var(--text-muted); font-family: var(--font-mono); font-size: 0.78rem; font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
 
     .docs-callout {
       background: var(--bg-elevated);
@@ -389,7 +389,7 @@
             <tr><td>Device / hostname</td><td class="bad">Collected</td><td class="bad">Collected</td><td class="good">Not collected</td></tr>
             <tr><td>Connection timestamps</td><td class="bad">Collected</td><td class="bad">Collected</td><td class="good">Not stored</td></tr>
             <tr><td>Email address</td><td class="bad">Required</td><td class="bad">Required</td><td class="good">Not required</td></tr>
-            <tr><td>Billing identity</td><td class="bad">Ye—</td><td class="bad">Ye—</td><td class="good">No</td></tr>
+            <tr><td>Billing identity</td><td class="bad">Yes</td><td class="bad">Yes</td><td class="good">No</td></tr>
             <tr><td>Identity, IP, billing compellable</td><td class="bad">Yes</td><td class="bad">Yes</td><td class="good">None held â€” cannot produce</td></tr>
           </tbody>
         </table>
@@ -551,20 +551,20 @@
               </tr>
               <tr style="border-bottom:1px solid var(--border-light);">
                 <td style="padding:0.65rem 1rem 0.65rem 0; color:var(--text-secondary);">Billing identity link</td>
-                <td style="padding:0.65rem 1rem; color:#e05252;">Yes</td>
-                <td style="padding:0.65rem 1rem; color:#e05252;">Y^s</td>
+                <td style="padding:0.65rem 1rem; color:#e05252; font-variant-ligatures:none; font-feature-settings:'liga' 0,'calt' 0;">Yes</td>
+                <td style="padding:0.65rem 1rem; color:#e05252; font-variant-ligatures:none; font-feature-settings:'liga' 0,'calt' 0;">Yes</td>
                 <td style="padding:0.65rem 1rem; color:#52a869;">No</td>
               </tr>
               <tr style="border-bottom:1px solid var(--border-light);">
                 <td style="padding:0.65rem 1rem 0.65rem 0; color:var(--text-secondary);">Workload content visible to provider</td>
                 <td style="padding:0.65rem 1rem; color:#e05252;">Possible</td>
-                <td style="padding:0.65rem 1rem; color:#e05252;">Yes</td>
+                <td style="padding:0.65rem 1rem; color:#e05252; font-variant-ligatures:none; font-feature-settings:'liga' 0,'calt' 0;">Yes</td>
                 <td style="padding:0.65rem 1rem; color:#52a869;">No</td>
               </tr>
               <tr>
                 <td style="padding:0.65rem 1rem 0.65rem 0; color:var(--text-secondary);">Identity, IP, billing compellable</td>
-                <td style="padding:0.65rem 1rem; color:#e05252;">Yes</td>
-                <td style="padding:0.65rem 1rem; color:#e05252;">Y^s</td>
+                <td style="padding:0.65rem 1rem; color:#e05252; font-variant-ligatures:none; font-feature-settings:'liga' 0,'calt' 0;">Yes</td>
+                <td style="padding:0.65rem 1rem; color:#e05252; font-variant-ligatures:none; font-feature-settings:'liga' 0,'calt' 0;">Yes</td>
                 <td style="padding:0.65rem 1rem; color:#52a869;">None held â€” cannot produce</td>
               </tr>
             </tbody>
@@ -594,7 +594,6 @@
         <div class="footer-col">
           <p class="footer-col-heading">Company</p>
           <a href="/about.html">About</a>
-          <a href="/docs.html">Docs</a>
           <a href="/contact.html">Contact</a>
         </div>
         <div class="footer-col">
