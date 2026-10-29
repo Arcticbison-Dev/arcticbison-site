@@ -614,13 +614,19 @@ img { max-width: 100%; display: block; }
 .data-table td.good {
   color: var(--accent-green);
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 0.875rem;
 }
 
 .data-table td.bad {
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 0.875rem;
+}
+
+/* Larger symbols for capability comparison table only */
+.capability-table td.good,
+.capability-table td.bad {
+  font-size: 1.15rem;
 }
 
 /* ── PRICING ───────────────────────────────────────────────── */
