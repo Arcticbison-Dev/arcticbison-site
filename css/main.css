@@ -614,13 +614,13 @@ img { max-width: 100%; display: block; }
 .data-table td.good {
   color: var(--accent-green);
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 1.1rem;
 }
 
 .data-table td.bad {
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 1.1rem;
 }
 
 /* ── PRICING ───────────────────────────────────────────────── */
