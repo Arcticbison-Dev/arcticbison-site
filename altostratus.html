@@ -24,6 +24,15 @@
     .pricing-features { flex: 1; }
     /* Consistent price block height so dividers align across columns */
     .pricing-price { min-height: 3.5rem; }
+    /* Pull "Most Popular" badge out of flow so it doesn't push Team card content down */
+    .pricing-card.featured { overflow: visible; }
+    .pricing-card.featured::before {
+      position: absolute;
+      top: -1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+    }
   </style>
 </head>
 <body>
