@@ -18,6 +18,12 @@
       list-style: none;
     }
     .pricing-plus-header::before { display: none; }
+    /* Align cards as flex columns so CTA buttons pin to the bottom */
+    .pricing-grid { align-items: stretch; }
+    .pricing-card { display: flex; flex-direction: column; }
+    .pricing-features { flex: 1; }
+    /* Consistent price block height so dividers align across columns */
+    .pricing-price { min-height: 3.5rem; }
   </style>
 </head>
 <body>
@@ -296,6 +302,7 @@
           <p class="pricing-annual">$990 / year</p>
           <div class="pricing-divider"></div>
           <ul class="pricing-features">
+            <li class="pricing-plus-header" aria-hidden="true" style="visibility:hidden">Placeholder</li>
             <li>1 User Account</li>
             <li>3 Cloud Platform Connections</li>
             <li>30 Total Instances</li>
